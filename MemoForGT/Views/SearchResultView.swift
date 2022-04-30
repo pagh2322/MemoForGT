@@ -1,13 +1,13 @@
 //
-//  MemoDetailView.swift
+//  SearchResultView.swift
 //  MemoForGT
 //
-//  Created by peo on 2022/04/30.
+//  Created by peo on 2022/05/01.
 //
 
 import SwiftUI
 
-struct MemoDetailView: View {
+struct SearchResultView: View {
     @EnvironmentObject var allData: AllData
     @State var isEditingMemo = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>

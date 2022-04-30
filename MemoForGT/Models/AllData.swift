@@ -10,6 +10,14 @@ import Foundation
 final class AllData: ObservableObject {
     @Published var memoList: [Memo] = load("memoData.json")
     @Published var memoListCount = (load("memoData.json") as [Memo]).count
+    @Published var searchText = "" {
+        didSet {
+            self.filteredMemoList = memoList.filter { memo in
+                return memo.content.contains(self.searchText)
+            }
+        }
+    }
+    @Published var filteredMemoList: [Memo] = load("memoData.json")
     
     func addMemo(_ memo: Memo) {
         self.memoList.insert(memo, at: 0)
