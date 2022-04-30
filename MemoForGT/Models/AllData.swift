@@ -20,6 +20,7 @@ final class AllData: ObservableObject {
     @Published var filteredMemoList: [Memo] = (load("memoData.json") as [Memo]).filter { memo in
         return !memo.isSecret
     }
+    @Published var currentMemo = Memo(id: -1, content: "")
     
     func addMemo(_ memo: Memo) {
         self.memoList.insert(memo, at: 0)
@@ -43,6 +44,7 @@ final class AllData: ObservableObject {
         self.memoList.remove(at: index)
         self.memoList.insert(memo, at: 0)
         self.memoListCount += 1
+        self.currentMemo = memo
     }
     
     func deleteAll() {

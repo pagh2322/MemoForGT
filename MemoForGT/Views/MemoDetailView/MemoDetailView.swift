@@ -21,7 +21,7 @@ struct MemoDetailView: View {
                 .bold()
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.top, 15)
-            Text(self.memo.content)
+            Text(self.allData.currentMemo.content)
                 .padding(.top, 15)
             
             Spacer()
@@ -62,6 +62,11 @@ struct MemoDetailView: View {
                 .sheet(isPresented: self.$isEditingMemo) {
                     EditMemoView(isEditingMemo: self.$isEditingMemo, memo: self.memo, password: self.memo.password ?? "")
                 }
+            }
+        }
+        .onAppear {
+            if self.allData.currentMemo.id == -1 {
+                self.allData.currentMemo = self.memo
             }
         }
     }
