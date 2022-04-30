@@ -19,7 +19,6 @@
 		B7B85C62281D5B80000C29B9 /* AddMemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B85C61281D5B80000C29B9 /* AddMemoView.swift */; };
 		B7B85C64281D6035000C29B9 /* MemoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B85C63281D6035000C29B9 /* MemoDetailView.swift */; };
 		B7B85C69281D88A5000C29B9 /* EditMemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B85C68281D88A5000C29B9 /* EditMemoView.swift */; };
-		B7B85C6B281D9FDE000C29B9 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B85C6A281D9FDE000C29B9 /* SearchResultView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +35,6 @@
 		B7B85C61281D5B80000C29B9 /* AddMemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemoView.swift; sourceTree = "<group>"; };
 		B7B85C63281D6035000C29B9 /* MemoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoDetailView.swift; sourceTree = "<group>"; };
 		B7B85C68281D88A5000C29B9 /* EditMemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMemoView.swift; sourceTree = "<group>"; };
-		B7B85C6A281D9FDE000C29B9 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +93,6 @@
 				B7B85C5F281D5349000C29B9 /* SummaryMemo.swift */,
 				B7B85C61281D5B80000C29B9 /* AddMemoView.swift */,
 				B7B85C68281D88A5000C29B9 /* EditMemoView.swift */,
-				B7B85C6A281D9FDE000C29B9 /* SearchResultView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -206,7 +203,6 @@
 				B7B85C69281D88A5000C29B9 /* EditMemoView.swift in Sources */,
 				B7B85C47281D4BD0000C29B9 /* MemoForGTApp.swift in Sources */,
 				B7B85C59281D5091000C29B9 /* AllData.swift in Sources */,
-				B7B85C6B281D9FDE000C29B9 /* SearchResultView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

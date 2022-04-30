@@ -22,7 +22,7 @@ struct MemoDetailView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.top, 15)
             Text(self.memo.content)
-                .padding(.top, 5)
+                .padding(.top, 15)
             
             Spacer()
             

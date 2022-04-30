@@ -12,12 +12,14 @@ final class AllData: ObservableObject {
     @Published var memoListCount = (load("memoData.json") as [Memo]).count
     @Published var searchText = "" {
         didSet {
-            self.filteredMemoList = memoList.filter { memo in
-                return memo.content.contains(self.searchText)
+            self.filteredMemoList = self.memoList.filter { memo in
+                return memo.content.contains(self.searchText) && !memo.isSecret
             }
         }
     }
-    @Published var filteredMemoList: [Memo] = load("memoData.json")
+    @Published var filteredMemoList: [Memo] = (load("memoData.json") as [Memo]).filter { memo in
+        return !memo.isSecret
+    }
     
     func addMemo(_ memo: Memo) {
         self.memoList.insert(memo, at: 0)
@@ -26,6 +28,7 @@ final class AllData: ObservableObject {
 
     func deleteMemo(index: Int) {
         self.memoList.remove(at: index)
+        self.memoListCount += 1
     }
 
     func editMemo(_ memo: Memo, id: Int) {
@@ -39,6 +42,11 @@ final class AllData: ObservableObject {
         }
         self.memoList.remove(at: index)
         self.memoList.insert(memo, at: 0)
+        self.memoListCount += 1
+    }
+    
+    func deleteAll() {
+        self.memoList.removeAll()
         self.memoListCount += 1
     }
 }
