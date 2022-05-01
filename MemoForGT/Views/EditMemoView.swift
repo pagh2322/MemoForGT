@@ -65,7 +65,7 @@ struct EditMemoView: View {
                             .padding(.leading, 15)
                     }
                     
-                    Image(systemName: self.isVisible ? "eye.fill.slash" : "eye.fill")
+                    Image(systemName: self.isVisible ? "eye.slash.fill" : "eye.fill")
                         .opacity(self.isSecret ? 1 : 0)
                         .onTapGesture {
                             self.isVisible.toggle()

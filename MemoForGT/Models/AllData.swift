@@ -8,7 +8,13 @@
 import Foundation
 
 final class AllData: ObservableObject {
-    @Published var memoList: [Memo] = load("memoData.json")
+    @Published var memoList: [Memo] = load("memoData.json") {
+        didSet {
+            self.filteredMemoList = self.memoList.filter { memo in
+                return !memo.isSecret
+            }
+        }
+    }
     @Published var memoListCount = (load("memoData.json") as [Memo]).count
     @Published var searchText = "" {
         didSet {
