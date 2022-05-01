@@ -28,3 +28,29 @@ func load<T: Decodable>(_ filename: String) -> T {
         fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
     }
 }
+
+func save(data: [Memo]) {
+    let jsonEncoder = JSONEncoder()
+    
+    
+    guard let file = Bundle.main.url(forResource: "memoData.json", withExtension: nil)
+    else {
+        fatalError("Couldn't find memoData.json in main bundle.")
+    }
+    
+    do {
+        let encodedData = try jsonEncoder.encode(data)
+        
+        do {
+            try encodedData.write(to: file.standardizedFileURL)
+        }
+        catch let error as NSError {
+            print(error)
+        }
+        
+        
+    } catch {
+        print(error)
+    }
+    
+}

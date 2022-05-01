@@ -24,11 +24,13 @@ final class AllData: ObservableObject {
     
     func addMemo(_ memo: Memo) {
         self.memoList.insert(memo, at: 0)
+        save(data: self.memoList)
         self.memoListCount += 1
     }
 
     func deleteMemo(index: Int) {
         self.memoList.remove(at: index)
+        save(data: self.memoList)
         self.memoListCount += 1
     }
 
@@ -43,12 +45,14 @@ final class AllData: ObservableObject {
         }
         self.memoList.remove(at: index)
         self.memoList.insert(memo, at: 0)
+        save(data: self.memoList)
         self.memoListCount += 1
         self.currentMemo = memo
     }
     
     func deleteAll() {
         self.memoList.removeAll()
+        save(data: self.memoList)
         self.memoListCount += 1
     }
 }
