@@ -21,6 +21,7 @@ struct ContentView: View {
         alert.addTextField() { textField in
             textField.placeholder = "비밀번호를 입력하세요"
         }
+        alert.textFields![0].isSecureTextEntry = true
         alert.addAction(UIAlertAction(title: "취소", style: .cancel) { _ in })
         alert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
             if let currentInputPassword = alert.textFields![0].text {
