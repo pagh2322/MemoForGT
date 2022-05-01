@@ -11,7 +11,6 @@ struct MemoDetailView: View {
     @EnvironmentObject var allData: AllData
     @State var isEditingMemo = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    var memo: Memo
     @State var isDeleting = false
     
     var body: some View {
@@ -44,7 +43,7 @@ struct MemoDetailView: View {
                       primaryButton: .destructive(
                         Text("삭제"), action: {
                         presentationMode.wrappedValue.dismiss()
-                        self.allData.deleteMemo(index: self.allData.memoList.firstIndex(of: self.memo)!)
+                        self.allData.deleteMemo(index: self.allData.memoList.firstIndex(of: self.allData.currentMemo)!)
                         }),
                       secondaryButton: .cancel(Text("취소"))
                 )
@@ -60,13 +59,8 @@ struct MemoDetailView: View {
                     Image(systemName: "square.and.pencil")
                 }
                 .sheet(isPresented: self.$isEditingMemo) {
-                    EditMemoView(isEditingMemo: self.$isEditingMemo, memo: self.memo, password: self.memo.password ?? "")
+                    EditMemoView(isEditingMemo: self.$isEditingMemo, memo: self.allData.currentMemo, password: self.allData.currentMemo.password ?? "")
                 }
-            }
-        }
-        .onAppear {
-            if self.allData.currentMemo.id == -1 {
-                self.allData.currentMemo = self.memo
             }
         }
     }

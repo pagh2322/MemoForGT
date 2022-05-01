@@ -25,8 +25,9 @@ struct ContentView: View {
                                 if memo.isSecret {
                                     
                                 } else {
-                                    self.selectedMemo = memo
+                                    self.allData.currentMemo = memo
                                     self.goToDetail = true
+                                    
                                 }
                             }) {
                                 SummaryMemo(memo: memo)
@@ -35,7 +36,7 @@ struct ContentView: View {
                             .padding(.bottom, 5)
                         }
                     }
-                    .background(NavigationLink(destination: MemoDetailView(memo: self.selectedMemo), isActive: self.$goToDetail) {
+                    .background(NavigationLink(destination: MemoDetailView(), isActive: self.$goToDetail) { EmptyView()
                     })
                     .padding(.horizontal, 25)
                     .padding(.top, 10)
@@ -43,7 +44,7 @@ struct ContentView: View {
                     .searchable(text: self.$allData.searchText, prompt: "메모 내용을 검색하세요") {
                         ForEach(self.allData.filteredMemoList) { memo in
                             Button(action: {     
-                                self.selectedMemo = memo
+                                self.allData.currentMemo = memo
                                 self.goToDetail = true
                             }) {
                                 Text(memo.content)
@@ -51,7 +52,7 @@ struct ContentView: View {
                             }
                             .foregroundColor(.primary)
                         }
-                        .background(NavigationLink(destination: MemoDetailView(memo: self.selectedMemo), isActive: self.$goToDetail) {
+                        .background(NavigationLink(destination: MemoDetailView(), isActive: self.$goToDetail) { EmptyView()
                         })
                     }
                     .toolbar {

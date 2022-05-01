@@ -47,8 +47,8 @@ final class AllData: ObservableObject {
         self.currentMemo = memo
     }
     
-    func deleteAll() {
-        self.memoList.removeAll()
-        self.memoListCount += 1
-    }
+//    func deleteAll() {
+//        self.memoList.removeAll()
+//        self.memoListCount += 1
+//    }
 }
